@@ -1,4 +1,4 @@
-t{
+{
   "name": "auth_nodejs",
   "version": "1.0.0",
   "description": "",
@@ -9,6 +9,9 @@ t{
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
+    "validator": "^13.11.0"
   }
 }
