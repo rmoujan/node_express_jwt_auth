@@ -49,3 +49,6 @@ module.exports.signup_post = async (req, res) => {
 module.exports.login_post = (req, res) => {
     res.send('user login');
 }
+
+
+// weslt hena Node Auth Tutorial (JWT) #6 - Mongoose Hooks
