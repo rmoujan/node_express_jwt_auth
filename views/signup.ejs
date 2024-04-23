@@ -1,6 +1,26 @@
 <%- include('partials/header'); -%>
 
-<h1> sign up </h1>
+<form>
+    <h2>sign up</h2>
+    <label for = "email" >Email</label>
+    <input type="text" name="email" required />
+    <div class ="email error"></div>
+    <label for = "password" >Password</label>
+    <input type="password" name="password" required />
+    <div class ="password error"></div>
+    <button>Sign up</button>
+</form>
 
+<script>
+     const form = document.querySelector('form');
+    //  when a submit event fires (when the form is clicked, we wanna prevent the default action(means we dont wanna the page to be refreched when the button was clicked))
+     form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
+        // get the values 
+        const email = form.email.value;
+        const pass = form.password.value; 
+        console.log(email, pass);
+     })
+</script>
 <%- include('partials/footer'); -%>
