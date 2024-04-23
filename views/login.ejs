@@ -12,15 +12,49 @@
 </form>
 
 <script>
+
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
+
      const form = document.querySelector('form');
     //  when a submit event fires (when the form is clicked, we wanna prevent the default action(means we dont wanna the page to be refreched when the button was clicked))
-     form.addEventListener('submit', (e) => {
+     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        // reset errors :
+        emailError.textContent ='';
+        passwordError.textContent ='';
 
         // get the values 
         const email = form.email.value;
-        const pass = form.password.value; 
-        console.log(email, pass);
+        const password = form.password.value; 
+        console.log('email is ',email);
+        console.log('password is ',password);
+        
+        try {
+            const res = await fetch('/login', {
+                method:'POST',
+                body: JSON.stringify({email, password}),
+                headers: {'Content-Type': 'application/json'} // send the body of the request as json
+            });
+            // putting the response from the server into the data.
+            const data = await res.json();
+            console.log(data);
+            if (data.errors) {
+                emailError.textContent    =   data.errors.email;
+                passwordError.textContent =   data.errors.password;
+            }
+            if (data.user)
+            {
+                // redirect the user to the home page.
+                location.assign('/');
+                // console.log('INSIDE IF ^^^');
+            }
+            // console.log('after checking ^^^^^');
+        }
+        catch (err) {
+            console.log(err);
+        }
+
      })
 </script>
 <%- include('partials/footer'); -%>

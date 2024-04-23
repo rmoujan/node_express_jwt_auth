@@ -36,11 +36,26 @@ userSchema.post('save',  function(doc, next) {
 });
 
 
+// static method to login user :
+userSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
+    if (user)
+    {
+        const auth = await bcrypt.compare(password, user.password);
+        if (auth) {
+            return user;
+        }
+        throw Error('Incorrect password');
+
+    }
+    throw Error('Incorrect email');
+}
+
 // this model user it will be automatically connected to the collection users on database 
 const User = mongoose.model('user', userSchema);
 // =>  so when want to save a user or get a user we gonna use this model 'User'
 module.exports = User;
 
-// weslt hena Node Auth Tutorial (JWT) #10 - JSON Web Tokens (theory)
+// weslt hena Node Auth Tutorial (JWT) #13 - Logging Users in (part 1)
 
 // Noote . KHASNI HAD VEDIO N3WEDO MZN ode Auth Tutorial (JWT) #10 - JSON Web Tokens (theory)

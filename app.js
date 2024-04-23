@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 const dbURI = 'mongodb+srv://Reshe:reshe123@cluster2.zdpa3n7.mongodb.net/auth_node';
 
 mongoose.connect(dbURI)
-        .then((result) => app.listen(3004))
+        .then((result) => app.listen(3005))
         .catch((err) => console.log(err));
 
 // routes :
