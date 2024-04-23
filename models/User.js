@@ -56,6 +56,6 @@ const User = mongoose.model('user', userSchema);
 // =>  so when want to save a user or get a user we gonna use this model 'User'
 module.exports = User;
 
-// weslt hena Node Auth Tutorial (JWT) #13 - Logging Users in (part 1)
+// weslt hena Node Auth Tutorial (JWT) #15 - Protecting Routes
 
 // Noote . KHASNI HAD VEDIO N3WEDO MZN ode Auth Tutorial (JWT) #10 - JSON Web Tokens (theory)
