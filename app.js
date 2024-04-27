@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes')
 const app = express();
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 // middleware :
 app.use(express.static('public'));
 app.use(express.json());
@@ -19,6 +19,8 @@ mongoose.connect(dbURI)
         .catch((err) => console.log(err));
 
 // routes :
+// I want to apply this middleware (checkUser) to every incoming get request 
+app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
 app.get('/smoothies',requireAuth, (req, res) => res.render('smoothies'));
 

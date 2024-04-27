@@ -88,3 +88,11 @@ module.exports.login_post =  async (req, res) => {
         res.status(400).json({errors});
     }
 }
+
+
+module.exports.logout_get =  async (req, res) => {
+        // REMOVING THE JWT TOKEN BY REPLACINE IT BY A BLANK SPACE AND GIVE TO IT 1 SEC TO EXPIRES SOON
+        res.cookie('jwt', '', {httpOnly: true, maxAge: 1}); 
+        res.redirect('/');
+
+}
