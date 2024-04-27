@@ -49,4 +49,3 @@ const checkUser = (req, res, next) => {
 }
 module.exports = {requireAuth, checkUser};
 
-// weslt hena : Node Auth Tutorial (JWT) #17 - Checking the Current User
