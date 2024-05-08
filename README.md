@@ -19,5 +19,5 @@ Introducing an authentication system built with Node.js Express.js, where users 
 ## Screens :
 ![home.png](scrennshots/home.png)
 ![login.png](scrennshots/login.png)
-![sing.png](scrennshots/sign.png)
+![sign.png](scrennshots/sign.png)
 ![books.png](scrennshots/books.png)
