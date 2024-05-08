@@ -22,7 +22,7 @@ mongoose.connect(dbURI)
 // I want to apply this middleware (checkUser) to every incoming get request 
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
-app.get('/smoothies',requireAuth, (req, res) => res.render('smoothies'));
+app.get('/books',requireAuth, (req, res) => res.render('books'));
 
 app.use(authRoutes);
 
